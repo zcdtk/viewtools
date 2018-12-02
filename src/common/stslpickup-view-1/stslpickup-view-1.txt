@@ -1,0 +1,8 @@
+stslpickup-view-1;
+common/stslpickup-view-1/;
+common/stslpickup-tree-view/stslpickup-tree-view.base.js,
+common/stslpickup-tree-view/stslpickup-tree-view.js,
+common/stslpickup-tree-view/stslpickup-tree-view_embedded.component.js,
+common/stslpickup-view-1/stslpickup-view-1.base.js,
+common/stslpickup-view-1/stslpickup-view-1.js,
+common/stslpickup-view-1/stslpickup-view-1.component.js,
