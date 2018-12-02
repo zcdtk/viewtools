@@ -6,9 +6,10 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
+const minimist = require('minimist');
 
-// 工作空间路径
-let BaseSrc = 'D:/Lab/Lab_IB5SYS01/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IB5Sys01/vuedev/pages/';
+const knownOptions = { string: 'WorkSpace' };
+const options = minimist(process.argv.slice(2), knownOptions);
 const rootPath = 'src';
 
 function getAllViewTools() {
@@ -48,16 +49,16 @@ gulp.task('mergeJs', function () {
             viewInfo.suburl = contant_arr[1];
             let refviews = JSON.parse(JSON.stringify(contant_arr[2].split(',')));
             refviews.forEach((refview) => {
-                viewInfo.refviews.push(BaseSrc + refview);
+                viewInfo.refviews.push(options.WorkSpace + refview);
             });
 
             if (Object.is(viewInfo.viewname, '') || Object.is(viewInfo.suburl, '') || !Array.isArray(viewInfo.refviews) || viewInfo.refviews.length === 0) {
                 return;
             }
 
-            viewInfo.suburl = BaseSrc + viewInfo.suburl;
+            viewInfo.suburl = options.WorkSpace + viewInfo.suburl;
             viewInfo.refviews.forEach((refview) => {
-                refview = BaseSrc + refview;
+                refview = options.WorkSpace + refview;
             });
             return gulp.src(viewInfo.refviews)
                 .pipe(babel({

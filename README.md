@@ -21,5 +21,5 @@ $ npm i
 
 1. 本地运行
 ```bash
-$ gulp mergeJs workspace
+$ gulp mergeJs --workspace 工作空间
 ```
