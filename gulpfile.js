@@ -47,18 +47,21 @@ gulp.task('mergeJs', function () {
             if (contant_arr.length !== 3) {
                 return;
             }
+
             viewInfo.viewname = contant_arr[0];
             viewInfo.suburl = contant_arr[1];
             let refviews = JSON.parse(JSON.stringify(contant_arr[2].split(',')));
             refviews.forEach((refview) => {
-                viewInfo.refviews.push(options.WorkSpace + refview);
+                if (fs.existsSync(path.join(options.WorkSpace, refview))) {
+                    viewInfo.refviews.push(path.join(options.WorkSpace, refview));
+                }
             });
 
             if (Object.is(viewInfo.viewname, '') || Object.is(viewInfo.suburl, '') || !Array.isArray(viewInfo.refviews) || viewInfo.refviews.length === 0) {
                 return;
             }
 
-            viewInfo.suburl = options.WorkSpace + viewInfo.suburl;
+            viewInfo.suburl = path.join(options.WorkSpace, viewInfo.suburl);
             viewInfo.refviews.forEach((refview) => {
                 refview = options.WorkSpace + refview;
             });
