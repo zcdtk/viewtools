@@ -12,6 +12,7 @@ const knownOptions = { string: 'WorkSpace' };
 const options = minimist(process.argv.slice(2), knownOptions);
 const rootPath = 'src';
 
+// 获取视图文件路径
 function getAllViewTools() {
     let allTxtFiles = [];
     fs.readdirSync(rootPath).filter((moduleFolder) => {
@@ -34,6 +35,7 @@ function getAllViewTools() {
     return allTxtFiles;
 }
 
+// 合并
 gulp.task('mergeJs', function () {
     var txts = getAllViewTools();
     txts.map((txt) => {
