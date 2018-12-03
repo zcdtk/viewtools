@@ -1,8 +1,0 @@
-stslpickup-grid-view;
-common/stslpickup-grid-view/;
-common/stslpickup-grid-view/stslpickup-grid-view.base.js,
-common/stslpickup-grid-view/stslpickup-grid-view.js,
-common/stslpickup-grid-view/stslpickup-grid-view_embedded.component.js,
-common/stslpickup-view2/stslpickup-view2.base.js,
-common/stslpickup-view2/stslpickup-view2.js,
-common/stslpickup-view2/stslpickup-view2.component.js,
