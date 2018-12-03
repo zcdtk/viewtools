@@ -57,14 +57,13 @@ gulp.task('mergeJs', function () {
                 }
             });
 
-            if (Object.is(viewInfo.viewname, '') || Object.is(viewInfo.suburl, '') || !Array.isArray(viewInfo.refviews) || viewInfo.refviews.length === 0) {
+            if (Object.is(viewInfo.viewname, '') || Object.is(viewInfo.suburl, '') || viewInfo.refviews.length === 0) {
+                console.error('关联视图异常' + viewInfo);
                 return;
             }
 
             viewInfo.suburl = path.join(options.WorkSpace, viewInfo.suburl);
-            viewInfo.refviews.forEach((refview) => {
-                refview = options.WorkSpace + refview;
-            });
+            console.log(viewInfo);
             return gulp.src(viewInfo.refviews)
                 .pipe(babel({
                     presets: ['@babel/env']
